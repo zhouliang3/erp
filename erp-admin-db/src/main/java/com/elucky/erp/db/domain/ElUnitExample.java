@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ElMaterialTypeExample {
+public class ElUnitExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class ElMaterialTypeExample {
 
     protected Integer rows;
 
-    public ElMaterialTypeExample() {
+    public ElUnitExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -49,12 +49,12 @@ public class ElMaterialTypeExample {
         return criteria;
     }
 
-    public ElMaterialTypeExample orderBy(String orderByClause) {
+    public ElUnitExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public ElMaterialTypeExample orderBy(String ... orderByClauses) {
+    public ElUnitExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -103,18 +103,18 @@ public class ElMaterialTypeExample {
         return this.rows;
     }
 
-    public ElMaterialTypeExample limit(Integer rows) {
+    public ElUnitExample limit(Integer rows) {
         this.rows = rows;
         return this;
     }
 
-    public ElMaterialTypeExample limit(Integer offset, Integer rows) {
+    public ElUnitExample limit(Integer offset, Integer rows) {
         this.offset = offset;
         this.rows = rows;
         return this;
     }
 
-    public ElMaterialTypeExample page(Integer page, Integer pageSize) {
+    public ElUnitExample page(Integer page, Integer pageSize) {
         this.offset = page * pageSize;
         this.rows = pageSize;
         return this;
@@ -176,7 +176,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIdEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -186,7 +186,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIdNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -196,7 +196,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andIdGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -206,7 +206,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIdGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -216,7 +216,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andIdLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -226,7 +226,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIdLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("id <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -251,103 +251,203 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameIsNull() {
-            addCriterion("material_type_name is null");
+        public Criteria andUnitIsNull() {
+            addCriterion("unit is null");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameIsNotNull() {
-            addCriterion("material_type_name is not null");
+        public Criteria andUnitIsNotNull() {
+            addCriterion("unit is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameEqualTo(String value) {
-            addCriterion("material_type_name =", value, "materialTypeName");
+        public Criteria andUnitEqualTo(String value) {
+            addCriterion("unit =", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameNotEqualTo(String value) {
-            addCriterion("material_type_name <>", value, "materialTypeName");
+        public Criteria andUnitNotEqualTo(String value) {
+            addCriterion("unit <>", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameNotEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitNotEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameGreaterThan(String value) {
-            addCriterion("material_type_name >", value, "materialTypeName");
+        public Criteria andUnitGreaterThan(String value) {
+            addCriterion("unit >", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameGreaterThanColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitGreaterThanColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameGreaterThanOrEqualTo(String value) {
-            addCriterion("material_type_name >=", value, "materialTypeName");
+        public Criteria andUnitGreaterThanOrEqualTo(String value) {
+            addCriterion("unit >=", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitGreaterThanOrEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameLessThan(String value) {
-            addCriterion("material_type_name <", value, "materialTypeName");
+        public Criteria andUnitLessThan(String value) {
+            addCriterion("unit <", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameLessThanColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitLessThanColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameLessThanOrEqualTo(String value) {
-            addCriterion("material_type_name <=", value, "materialTypeName");
+        public Criteria andUnitLessThanOrEqualTo(String value) {
+            addCriterion("unit <=", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameLessThanOrEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type_name <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andUnitLessThanOrEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameLike(String value) {
-            addCriterion("material_type_name like", value, "materialTypeName");
+        public Criteria andUnitLike(String value) {
+            addCriterion("unit like", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameNotLike(String value) {
-            addCriterion("material_type_name not like", value, "materialTypeName");
+        public Criteria andUnitNotLike(String value) {
+            addCriterion("unit not like", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameIn(List<String> values) {
-            addCriterion("material_type_name in", values, "materialTypeName");
+        public Criteria andUnitIn(List<String> values) {
+            addCriterion("unit in", values, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameNotIn(List<String> values) {
-            addCriterion("material_type_name not in", values, "materialTypeName");
+        public Criteria andUnitNotIn(List<String> values) {
+            addCriterion("unit not in", values, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameBetween(String value1, String value2) {
-            addCriterion("material_type_name between", value1, value2, "materialTypeName");
+        public Criteria andUnitBetween(String value1, String value2) {
+            addCriterion("unit between", value1, value2, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andMaterialTypeNameNotBetween(String value1, String value2) {
-            addCriterion("material_type_name not between", value1, value2, "materialTypeName");
+        public Criteria andUnitNotBetween(String value1, String value2) {
+            addCriterion("unit not between", value1, value2, "unit");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnIsNull() {
+            addCriterion("unit_cn is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnIsNotNull() {
+            addCriterion("unit_cn is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnEqualTo(String value) {
+            addCriterion("unit_cn =", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnNotEqualTo(String value) {
+            addCriterion("unit_cn <>", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnNotEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnGreaterThan(String value) {
+            addCriterion("unit_cn >", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnGreaterThanColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnGreaterThanOrEqualTo(String value) {
+            addCriterion("unit_cn >=", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnGreaterThanOrEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnLessThan(String value) {
+            addCriterion("unit_cn <", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnLessThanColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnLessThanOrEqualTo(String value) {
+            addCriterion("unit_cn <=", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnLessThanOrEqualToColumn(ElUnit.Column column) {
+            addCriterion(new StringBuilder("unit_cn <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnLike(String value) {
+            addCriterion("unit_cn like", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnNotLike(String value) {
+            addCriterion("unit_cn not like", value, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnIn(List<String> values) {
+            addCriterion("unit_cn in", values, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnNotIn(List<String> values) {
+            addCriterion("unit_cn not in", values, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnBetween(String value1, String value2) {
+            addCriterion("unit_cn between", value1, value2, "unitCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnitCnNotBetween(String value1, String value2) {
+            addCriterion("unit_cn not between", value1, value2, "unitCn");
             return (Criteria) this;
         }
 
@@ -366,7 +466,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -376,7 +476,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -386,7 +486,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -396,7 +496,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -406,7 +506,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -416,7 +516,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateUserLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateUserLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_user <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -466,7 +566,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -476,7 +576,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -486,7 +586,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -496,7 +596,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -506,7 +606,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -516,7 +616,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andCreateTimeLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("create_time <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -556,7 +656,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -566,7 +666,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -576,7 +676,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -586,7 +686,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -596,7 +696,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -606,7 +706,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateUserLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateUserLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_user <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -656,7 +756,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -666,7 +766,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -676,7 +776,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -686,7 +786,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -696,7 +796,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -706,7 +806,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdateTimeLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andUpdateTimeLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("update_time <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -746,7 +846,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -756,7 +856,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -766,7 +866,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -776,7 +876,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -786,7 +886,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -796,7 +896,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsDeletedLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andIsDeletedLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("is_deleted <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -836,7 +936,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andVersionEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -846,7 +946,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionNotEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andVersionNotEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -856,7 +956,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionGreaterThanColumn(ElMaterialType.Column column) {
+        public Criteria andVersionGreaterThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -866,7 +966,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andVersionGreaterThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -876,7 +976,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionLessThanColumn(ElMaterialType.Column column) {
+        public Criteria andVersionLessThanColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -886,7 +986,7 @@ public class ElMaterialTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVersionLessThanOrEqualToColumn(ElMaterialType.Column column) {
+        public Criteria andVersionLessThanOrEqualToColumn(ElUnit.Column column) {
             addCriterion(new StringBuilder("version <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -910,117 +1010,17 @@ public class ElMaterialTypeExample {
             addCriterion("version not between", value1, value2, "version");
             return (Criteria) this;
         }
-
-        public Criteria andMaterialTypeIsNull() {
-            addCriterion("material_type is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeIsNotNull() {
-            addCriterion("material_type is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeEqualTo(String value) {
-            addCriterion("material_type =", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeNotEqualTo(String value) {
-            addCriterion("material_type <>", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeNotEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeGreaterThan(String value) {
-            addCriterion("material_type >", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeGreaterThanColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("material_type >=", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeGreaterThanOrEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeLessThan(String value) {
-            addCriterion("material_type <", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeLessThanColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeLessThanOrEqualTo(String value) {
-            addCriterion("material_type <=", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeLessThanOrEqualToColumn(ElMaterialType.Column column) {
-            addCriterion(new StringBuilder("material_type <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeLike(String value) {
-            addCriterion("material_type like", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeNotLike(String value) {
-            addCriterion("material_type not like", value, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeIn(List<String> values) {
-            addCriterion("material_type in", values, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeNotIn(List<String> values) {
-            addCriterion("material_type not in", values, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeBetween(String value1, String value2) {
-            addCriterion("material_type between", value1, value2, "materialType");
-            return (Criteria) this;
-        }
-
-        public Criteria andMaterialTypeNotBetween(String value1, String value2) {
-            addCriterion("material_type not between", value1, value2, "materialType");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private ElMaterialTypeExample example;
+        private ElUnitExample example;
 
-        protected Criteria(ElMaterialTypeExample example) {
+        protected Criteria(ElUnitExample example) {
             super();
             this.example = example;
         }
 
-        public ElMaterialTypeExample example() {
+        public ElUnitExample example() {
             return this.example;
         }
 
@@ -1032,7 +1032,7 @@ public class ElMaterialTypeExample {
         }
 
         public Criteria andLogicalDeleted(boolean deleted) {
-            return deleted ? andIsDeletedEqualTo(ElMaterialType.IS_DELETED) : andIsDeletedNotEqualTo(ElMaterialType.IS_DELETED);
+            return deleted ? andIsDeletedEqualTo(ElUnit.IS_DELETED) : andIsDeletedNotEqualTo(ElUnit.IS_DELETED);
         }
 
         public interface ICriteriaAdd {

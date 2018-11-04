@@ -79,17 +79,22 @@
 
         </table>
 
-        <table tableName="el_material_type">
-            <property name="versionColumn" value="version"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-
-
-        -->
         <table tableName="el_warehouse">
             <property name="versionColumn" value="version"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
+
+        <table tableName="el_material_type">
+            <property name="versionColumn" value="version"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        -->
+
+
+        <table tableName="el_unit">
+            <property name="versionColumn" value="version"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>

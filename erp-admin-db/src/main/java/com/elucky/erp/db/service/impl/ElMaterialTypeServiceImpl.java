@@ -21,13 +21,12 @@ public class ElMaterialTypeServiceImpl implements ElMaterialTypeService {
     private ElMaterialTypeMapper elMaterialTypeMapper;
 
     @Override
-    public List<ElMaterialType> querySelective(String materialTypeName, Integer page, Integer limit, String sort, String order) {
-        ElMaterialTypeExample example = createMaterialTypeExample(materialTypeName);
-        if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(order)) {
-            example.setOrderByClause(sort + " " + order);
+    public List<ElMaterialType> selectByTypeOrName(String p, Integer page, Integer limit, String sort, String order) {
+        if (StringUtils.isBlank(p)) {
+            p = "";
         }
         PageHelper.startPage(page, limit);
-        return elMaterialTypeMapper.selectByExample(example);
+        return elMaterialTypeMapper.selectByTypeOrName("%" + p + "%");
     }
 
     private ElMaterialTypeExample createMaterialTypeExample(String materialTypeName) {
@@ -59,9 +58,11 @@ public class ElMaterialTypeServiceImpl implements ElMaterialTypeService {
 
 
     @Override
-    public long countSelective(String materialTypeName) {
-        ElMaterialTypeExample example = createMaterialTypeExample(materialTypeName);
-        return elMaterialTypeMapper.countByExample(example);
+    public long countByTypeOrName(String p) {
+        if (StringUtils.isBlank(p)) {
+            p = "";
+        }
+        return elMaterialTypeMapper.countByTypeOrName("%" + p + "%");
     }
 
     @Override

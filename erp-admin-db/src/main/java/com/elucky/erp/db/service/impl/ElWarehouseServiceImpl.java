@@ -28,19 +28,6 @@ public class ElWarehouseServiceImpl implements ElWarehouseService {
         return elWarehouseMapper.selectByWarehoseOrDesc("%" + p + "%");
     }
 
-    private ElWarehouseExample createWarehouseExample(String waresehouse, String desc) {
-        ElWarehouseExample example = new ElWarehouseExample();
-        ElWarehouseExample.Criteria criteria = example.createCriteria();
-        criteria.andIsDeletedEqualTo(false);
-        if (StringUtils.isNotBlank(waresehouse)) {
-            criteria.andWarehouseLike("%" + waresehouse + "%");
-        }
-        if (StringUtils.isNotBlank(desc)) {
-            criteria.andDescLike("%" + desc + "%");
-        }
-        return example;
-    }
-
     @Override
     public List<ElWarehouse> queryByWarehouse(String warehouse) {
         ElWarehouseExample example = new ElWarehouseExample();
@@ -63,7 +50,7 @@ public class ElWarehouseServiceImpl implements ElWarehouseService {
         if (StringUtils.isBlank(p)) {
             p = "";
         }
-        return elWarehouseMapper.countByWarehoseOrDesc(p);
+        return elWarehouseMapper.countByWarehoseOrDesc("%" + p + "%");
     }
 
     @Override

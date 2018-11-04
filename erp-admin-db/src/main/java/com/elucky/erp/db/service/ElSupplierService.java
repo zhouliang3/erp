@@ -8,13 +8,15 @@ import java.util.List;
  * Created by zero on 2018/10/24.
  */
 public interface ElSupplierService {
-    List<ElSupplier> querySelective(String supplierName, String contact, String tel, Integer page, Integer limit, String sort, String order);
+
+    List<ElSupplier> queryByMultiCond(String p, Integer page, Integer limit, String sort, String order);
 
     List<ElSupplier> queryBySupplierName(String supplierName);
 
     ElSupplier queryById(Long id);
 
-    long countSelective(String supplierName, String contact, String tel);
+
+    long countByMultiCond(String p);
 
     int add(ElSupplier supplier);
 

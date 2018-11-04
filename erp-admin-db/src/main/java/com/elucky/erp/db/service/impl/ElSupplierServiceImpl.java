@@ -20,30 +20,14 @@ public class ElSupplierServiceImpl implements ElSupplierService {
     private ElSupplierMapper elSupplierMapper;
 
     @Override
-    public List<ElSupplier> querySelective(String supplierName, String contact, String tel, Integer page, Integer limit, String sort, String order) {
-        ElSupplierExample example = createSupplierExample(supplierName, contact, tel);
-        if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(order)) {
-            example.setOrderByClause(sort + " " + order);
+    public List<ElSupplier> queryByMultiCond(String p, Integer page, Integer limit, String sort, String order) {
+        if (StringUtils.isBlank(p)) {
+            p = "";
         }
         PageHelper.startPage(page, limit);
-        return elSupplierMapper.selectByExample(example);
+        return elSupplierMapper.selectByMultiCond("%" +p+ "%");
     }
 
-    private ElSupplierExample createSupplierExample(String supplierName, String contact, String tel) {
-        ElSupplierExample example = new ElSupplierExample();
-        ElSupplierExample.Criteria criteria = example.createCriteria();
-        criteria.andIsDeletedEqualTo(false);
-        if (StringUtils.isNotBlank(supplierName)) {
-            criteria.andSupplierNameLike("%" + supplierName + "%");
-        }
-        if (StringUtils.isNotBlank(contact)) {
-            criteria.andContactLike("%" + contact + "%");
-        }
-        if (StringUtils.isNotBlank(tel)) {
-            criteria.andTelLike("%" + tel + "%");
-        }
-        return example;
-    }
 
     @Override
     public List<ElSupplier> queryBySupplierName(String supplierName) {
@@ -62,11 +46,12 @@ public class ElSupplierServiceImpl implements ElSupplierService {
         return elSupplierMapper.selectByPrimaryKeyWithLogicalDelete(id, false);
     }
 
-
     @Override
-    public long countSelective(String supplierName, String contact, String tel) {
-        ElSupplierExample example = createSupplierExample(supplierName, contact, tel);
-        return elSupplierMapper.countByExample(example);
+    public long countByMultiCond(String p) {
+        if (StringUtils.isBlank(p)) {
+            p = "";
+        }
+        return elSupplierMapper.countByByMultiCond("%" +p+ "%");
     }
 
     @Override

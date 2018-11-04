@@ -53,4 +53,8 @@ public interface ElSupplierMapper {
     int logicalDeleteByExample(@Param("example") ElSupplierExample example);
 
     int logicalDeleteByPrimaryKey(Long id);
+
+
+    List<ElSupplier> selectByMultiCond(@Param("p") String p);
+    long countByByMultiCond(@Param("p") String p);
 }

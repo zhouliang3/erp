@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-public class ElMaterialType {
+public class ElUnit {
     public static final Boolean NOT_DELETED = false;
 
     public static final Boolean IS_DELETED = true;
 
     private Long id;
 
-    private String materialTypeName;
+    private String unit;
+
+    private String unitCn;
 
     private String createUser;
 
@@ -25,8 +27,6 @@ public class ElMaterialType {
 
     private Integer version;
 
-    private String materialType;
-
     public Long getId() {
         return id;
     }
@@ -35,12 +35,20 @@ public class ElMaterialType {
         this.id = id;
     }
 
-    public String getMaterialTypeName() {
-        return materialTypeName;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setMaterialTypeName(String materialTypeName) {
-        this.materialTypeName = materialTypeName;
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getUnitCn() {
+        return unitCn;
+    }
+
+    public void setUnitCn(String unitCn) {
+        this.unitCn = unitCn;
     }
 
     public String getCreateUser() {
@@ -91,14 +99,6 @@ public class ElMaterialType {
         this.version = version;
     }
 
-    public String getMaterialType() {
-        return materialType;
-    }
-
-    public void setMaterialType(String materialType) {
-        this.materialType = materialType;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -106,14 +106,14 @@ public class ElMaterialType {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", materialTypeName=").append(materialTypeName);
+        sb.append(", unit=").append(unit);
+        sb.append(", unitCn=").append(unitCn);
         sb.append(", createUser=").append(createUser);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateUser=").append(updateUser);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", isDeleted=").append(isDeleted);
         sb.append(", version=").append(version);
-        sb.append(", materialType=").append(materialType);
         sb.append("]");
         return sb.toString();
     }
@@ -129,16 +129,16 @@ public class ElMaterialType {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ElMaterialType other = (ElMaterialType) that;
+        ElUnit other = (ElUnit) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getMaterialTypeName() == null ? other.getMaterialTypeName() == null : this.getMaterialTypeName().equals(other.getMaterialTypeName()))
+            && (this.getUnit() == null ? other.getUnit() == null : this.getUnit().equals(other.getUnit()))
+            && (this.getUnitCn() == null ? other.getUnitCn() == null : this.getUnitCn().equals(other.getUnitCn()))
             && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
             && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getMaterialType() == null ? other.getMaterialType() == null : this.getMaterialType().equals(other.getMaterialType()));
+            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()));
     }
 
     @Override
@@ -146,14 +146,14 @@ public class ElMaterialType {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getMaterialTypeName() == null) ? 0 : getMaterialTypeName().hashCode());
+        result = prime * result + ((getUnit() == null) ? 0 : getUnit().hashCode());
+        result = prime * result + ((getUnitCn() == null) ? 0 : getUnitCn().hashCode());
         result = prime * result + ((getCreateUser() == null) ? 0 : getCreateUser().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
-        result = prime * result + ((getMaterialType() == null) ? 0 : getMaterialType().hashCode());
         return result;
     }
 
@@ -163,14 +163,14 @@ public class ElMaterialType {
 
     public enum Column {
         id("id", "id", "BIGINT", false),
-        materialTypeName("material_type_name", "materialTypeName", "VARCHAR", false),
+        unit("unit", "unit", "VARCHAR", false),
+        unitCn("unit_cn", "unitCn", "VARCHAR", false),
         createUser("create_user", "createUser", "VARCHAR", false),
         createTime("create_time", "createTime", "TIMESTAMP", false),
         updateUser("update_user", "updateUser", "VARCHAR", false),
         updateTime("update_time", "updateTime", "TIMESTAMP", false),
         isDeleted("is_deleted", "isDeleted", "BIT", false),
-        version("version", "version", "INTEGER", false),
-        materialType("material_type", "materialType", "VARCHAR", false);
+        version("version", "version", "INTEGER", false);
 
         private static final String BEGINNING_DELIMITER = "`";
 

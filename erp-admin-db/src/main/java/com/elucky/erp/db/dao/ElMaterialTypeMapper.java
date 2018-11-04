@@ -53,4 +53,7 @@ public interface ElMaterialTypeMapper {
     int logicalDeleteByExample(@Param("example") ElMaterialTypeExample example);
 
     int logicalDeleteByPrimaryKey(Long id);
+
+    List<ElMaterialType> selectByTypeOrName(@Param("p") String p);
+    long countByTypeOrName(@Param("p") String p);
 }

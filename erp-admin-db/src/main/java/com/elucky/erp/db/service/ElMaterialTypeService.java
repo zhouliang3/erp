@@ -8,13 +8,13 @@ import java.util.List;
  * Created by zero on 2018/11/3.
  */
 public interface ElMaterialTypeService {
-    List<ElMaterialType> querySelective(String materialTypeName, Integer page, Integer limit, String sort, String order);
+    List<ElMaterialType> selectByTypeOrName(String materialTypeName, Integer page, Integer limit, String sort, String order);
 
     List<ElMaterialType> queryByMaterialTypeName(String materialTypeName);
 
     ElMaterialType queryById(Long id);
 
-    long countSelective(String materialTypeName);
+    long countByTypeOrName(String materialTypeName);
 
     int add(ElMaterialType materialType);
 

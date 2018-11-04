@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.elucky.erp.db.dao.ElSupplierMapper">
-  <resultMap id="BaseResultMap" type="com.elucky.erp.db.domain.ElSupplier">
+<mapper namespace="com.elucky.erp.db.dao.ElUnitMapper">
+  <resultMap id="BaseResultMap" type="com.elucky.erp.db.domain.ElUnit">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
-    <result column="contact" jdbcType="VARCHAR" property="contact" />
-    <result column="tel" jdbcType="VARCHAR" property="tel" />
-    <result column="fax" jdbcType="VARCHAR" property="fax" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="unit_cn" jdbcType="VARCHAR" property="unitCn" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
@@ -107,16 +103,16 @@
     </where >
   </sql>
   <sql id="Base_Column_List">
-    id, supplier_name, contact, tel, fax, email, address, create_user, create_time, update_user, 
-    update_time, is_deleted, version
+    id, unit, unit_cn, create_user, create_time, update_user, update_time, is_deleted, 
+    version
   </sql>
-  <select id="selectByExample" parameterType="com.elucky.erp.db.domain.ElSupplierExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.elucky.erp.db.domain.ElUnitExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from el_supplier
+    from el_unit
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -144,11 +140,11 @@
         </foreach>
       </when>
       <otherwise>
-        id, supplier_name, contact, tel, fax, email, address, create_user, create_time, update_user, 
-          update_time, is_deleted, version
+        id, unit, unit_cn, create_user, create_time, update_user, update_time, is_deleted, 
+          version
       </otherwise>
     </choose>
-    from el_supplier
+    from el_unit
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -159,13 +155,13 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from el_supplier
+    from el_unit
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectByPrimaryKeyWithLogicalDelete" parameterType="map" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from el_supplier
+    from el_unit
     where id = #{id,jdbcType=BIGINT}
       and is_deleted = 
     <choose>
@@ -186,61 +182,45 @@
         </foreach>
       </when>
       <otherwise>
-        id, supplier_name, contact, tel, fax, email, address, create_user, create_time, update_user, 
-          update_time, is_deleted, version
+        id, unit, unit_cn, create_user, create_time, update_user, update_time, is_deleted, 
+          version
       </otherwise>
     </choose>
-    from el_supplier
+    from el_unit
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from el_supplier
+    delete from el_unit
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.elucky.erp.db.domain.ElSupplierExample">
-    delete from el_supplier
+  <delete id="deleteByExample" parameterType="com.elucky.erp.db.domain.ElUnitExample">
+    delete from el_unit
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.elucky.erp.db.domain.ElSupplier">
+  <insert id="insert" parameterType="com.elucky.erp.db.domain.ElUnit">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into el_supplier (supplier_name, contact, tel, 
-      fax, email, address, 
-      create_user, create_time, update_user, 
-      update_time, is_deleted, version
-      )
-    values (#{supplierName,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
-      #{fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BIT}, #{version,jdbcType=INTEGER}
-      )
+    insert into el_unit (unit, unit_cn, create_user, 
+      create_time, update_user, update_time, 
+      is_deleted, version)
+    values (#{unit,jdbcType=VARCHAR}, #{unitCn,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=BIT}, #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.elucky.erp.db.domain.ElSupplier">
+  <insert id="insertSelective" parameterType="com.elucky.erp.db.domain.ElUnit">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into el_supplier
+    insert into el_unit
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="supplierName != null">
-        supplier_name,
+      <if test="unit != null">
+        unit,
       </if>
-      <if test="contact != null">
-        contact,
-      </if>
-      <if test="tel != null">
-        tel,
-      </if>
-      <if test="fax != null">
-        fax,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="address != null">
-        address,
+      <if test="unitCn != null">
+        unit_cn,
       </if>
       <if test="createUser != null">
         create_user,
@@ -262,23 +242,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="supplierName != null">
-        #{supplierName,jdbcType=VARCHAR},
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
       </if>
-      <if test="contact != null">
-        #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null">
-        #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        #{address,jdbcType=VARCHAR},
+      <if test="unitCn != null">
+        #{unitCn,jdbcType=VARCHAR},
       </if>
       <if test="createUser != null">
         #{createUser,jdbcType=VARCHAR},
@@ -300,35 +268,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.elucky.erp.db.domain.ElSupplierExample" resultType="java.lang.Long">
-    select count(*) from el_supplier
+  <select id="countByExample" parameterType="com.elucky.erp.db.domain.ElUnitExample" resultType="java.lang.Long">
+    select count(*) from el_unit
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update el_supplier
+    update el_unit
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.supplierName != null">
-        supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+      <if test="record.unit != null">
+        unit = #{record.unit,jdbcType=VARCHAR},
       </if>
-      <if test="record.contact != null">
-        contact = #{record.contact,jdbcType=VARCHAR},
-      </if>
-      <if test="record.tel != null">
-        tel = #{record.tel,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fax != null">
-        fax = #{record.fax,jdbcType=VARCHAR},
-      </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
-      </if>
-      <if test="record.address != null">
-        address = #{record.address,jdbcType=VARCHAR},
+      <if test="record.unitCn != null">
+        unit_cn = #{record.unitCn,jdbcType=VARCHAR},
       </if>
       <if test="record.createUser != null">
         create_user = #{record.createUser,jdbcType=VARCHAR},
@@ -354,14 +310,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update el_supplier
+    update el_unit
     set id = #{record.id,jdbcType=BIGINT},
-      supplier_name = #{record.supplierName,jdbcType=VARCHAR},
-      contact = #{record.contact,jdbcType=VARCHAR},
-      tel = #{record.tel,jdbcType=VARCHAR},
-      fax = #{record.fax,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
-      address = #{record.address,jdbcType=VARCHAR},
+      unit = #{record.unit,jdbcType=VARCHAR},
+      unit_cn = #{record.unitCn,jdbcType=VARCHAR},
       create_user = #{record.createUser,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_user = #{record.updateUser,jdbcType=VARCHAR},
@@ -372,26 +324,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.elucky.erp.db.domain.ElSupplier">
-    update el_supplier
+  <update id="updateByPrimaryKeySelective" parameterType="com.elucky.erp.db.domain.ElUnit">
+    update el_unit
     <set>
-      <if test="supplierName != null">
-        supplier_name = #{supplierName,jdbcType=VARCHAR},
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
       </if>
-      <if test="contact != null">
-        contact = #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        tel = #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null">
-        fax = #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        address = #{address,jdbcType=VARCHAR},
+      <if test="unitCn != null">
+        unit_cn = #{unitCn,jdbcType=VARCHAR},
       </if>
       <if test="createUser != null">
         create_user = #{createUser,jdbcType=VARCHAR},
@@ -414,14 +354,10 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.elucky.erp.db.domain.ElSupplier">
-    update el_supplier
-    set supplier_name = #{supplierName,jdbcType=VARCHAR},
-      contact = #{contact,jdbcType=VARCHAR},
-      tel = #{tel,jdbcType=VARCHAR},
-      fax = #{fax,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.elucky.erp.db.domain.ElUnit">
+    update el_unit
+    set unit = #{unit,jdbcType=VARCHAR},
+      unit_cn = #{unitCn,jdbcType=VARCHAR},
       create_user = #{createUser,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_user = #{updateUser,jdbcType=VARCHAR},
@@ -430,10 +366,10 @@
       version = #{version,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.elucky.erp.db.domain.ElSupplierExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.elucky.erp.db.domain.ElUnitExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from el_supplier
+    from el_unit
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -451,11 +387,11 @@
         </foreach>
       </when>
       <otherwise>
-        id, supplier_name, contact, tel, fax, email, address, create_user, create_time, update_user, 
-          update_time, is_deleted, version
+        id, unit, unit_cn, create_user, create_time, update_user, update_time, is_deleted, 
+          version
       </otherwise>
     </choose>
-    from el_supplier
+    from el_unit
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -465,36 +401,32 @@
     limit 1
   </select>
   <update id="logicalDeleteByExample" parameterType="map">
-    update el_supplier set is_deleted = 1
+    update el_unit set is_deleted = 1
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="logicalDeleteByPrimaryKey" parameterType="java.lang.Long">
-    update el_supplier set is_deleted = 1
+    update el_unit set is_deleted = 1
     where id = #{id,jdbcType=BIGINT}
   </update>
   <delete id="deleteWithVersionByPrimaryKey" parameterType="map">
-    delete from el_supplier
+    delete from el_unit
     where version = #{version,jdbcType=INTEGER}
       and id = #{key,jdbcType=BIGINT}
   </delete>
   <delete id="deleteWithVersionByExample" parameterType="map">
-    delete from el_supplier
+    delete from el_unit
     <if test="_parameter != null">
       <include refid="Update_By_Example_With_Version_Where_Clause" />
     </if>
   </delete>
   <update id="updateWithVersionByExample" parameterType="map">
-    update el_supplier
+    update el_unit
     set version = version + 1,
     id = #{record.id,jdbcType=BIGINT}, 
-    supplier_name = #{record.supplierName,jdbcType=VARCHAR}, 
-    contact = #{record.contact,jdbcType=VARCHAR}, 
-    tel = #{record.tel,jdbcType=VARCHAR}, 
-    fax = #{record.fax,jdbcType=VARCHAR}, 
-    email = #{record.email,jdbcType=VARCHAR}, 
-    address = #{record.address,jdbcType=VARCHAR}, 
+    unit = #{record.unit,jdbcType=VARCHAR}, 
+    unit_cn = #{record.unitCn,jdbcType=VARCHAR}, 
     create_user = #{record.createUser,jdbcType=VARCHAR}, 
     create_time = #{record.createTime,jdbcType=TIMESTAMP}, 
     update_user = #{record.updateUser,jdbcType=VARCHAR}, 
@@ -505,30 +437,18 @@
     </if>
   </update>
   <update id="updateWithVersionByExampleSelective" parameterType="map">
-    update el_supplier
+    update el_unit
     <set>
       <trim suffixOverrides=",">
         version = version + 1,
         <if test="record.id != null">
           id = #{record.id,jdbcType=BIGINT},
         </if>
-        <if test="record.supplierName != null">
-          supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+        <if test="record.unit != null">
+          unit = #{record.unit,jdbcType=VARCHAR},
         </if>
-        <if test="record.contact != null">
-          contact = #{record.contact,jdbcType=VARCHAR},
-        </if>
-        <if test="record.tel != null">
-          tel = #{record.tel,jdbcType=VARCHAR},
-        </if>
-        <if test="record.fax != null">
-          fax = #{record.fax,jdbcType=VARCHAR},
-        </if>
-        <if test="record.email != null">
-          email = #{record.email,jdbcType=VARCHAR},
-        </if>
-        <if test="record.address != null">
-          address = #{record.address,jdbcType=VARCHAR},
+        <if test="record.unitCn != null">
+          unit_cn = #{record.unitCn,jdbcType=VARCHAR},
         </if>
         <if test="record.createUser != null">
           create_user = #{record.createUser,jdbcType=VARCHAR},
@@ -552,14 +472,10 @@
     </if>
   </update>
   <update id="updateWithVersionByPrimaryKey" parameterType="map">
-    update el_supplier
+    update el_unit
     set version = version + 1,
-    supplier_name = #{record.supplierName,jdbcType=VARCHAR}, 
-    contact = #{record.contact,jdbcType=VARCHAR}, 
-    tel = #{record.tel,jdbcType=VARCHAR}, 
-    fax = #{record.fax,jdbcType=VARCHAR}, 
-    email = #{record.email,jdbcType=VARCHAR}, 
-    address = #{record.address,jdbcType=VARCHAR}, 
+    unit = #{record.unit,jdbcType=VARCHAR}, 
+    unit_cn = #{record.unitCn,jdbcType=VARCHAR}, 
     create_user = #{record.createUser,jdbcType=VARCHAR}, 
     create_time = #{record.createTime,jdbcType=TIMESTAMP}, 
     update_user = #{record.updateUser,jdbcType=VARCHAR}, 
@@ -569,27 +485,15 @@
       and id = #{record.id,jdbcType=BIGINT}
   </update>
   <update id="updateWithVersionByPrimaryKeySelective" parameterType="map">
-    update el_supplier
+    update el_unit
     <set>
       <trim suffixOverrides=",">
         version = version + 1,
-        <if test="record.supplierName != null">
-          supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+        <if test="record.unit != null">
+          unit = #{record.unit,jdbcType=VARCHAR},
         </if>
-        <if test="record.contact != null">
-          contact = #{record.contact,jdbcType=VARCHAR},
-        </if>
-        <if test="record.tel != null">
-          tel = #{record.tel,jdbcType=VARCHAR},
-        </if>
-        <if test="record.fax != null">
-          fax = #{record.fax,jdbcType=VARCHAR},
-        </if>
-        <if test="record.email != null">
-          email = #{record.email,jdbcType=VARCHAR},
-        </if>
-        <if test="record.address != null">
-          address = #{record.address,jdbcType=VARCHAR},
+        <if test="record.unitCn != null">
+          unit_cn = #{record.unitCn,jdbcType=VARCHAR},
         </if>
         <if test="record.createUser != null">
           create_user = #{record.createUser,jdbcType=VARCHAR},
@@ -613,17 +517,16 @@
   </update>
 
 
-
-  <select id="selectByMultiCond" resultMap="BaseResultMap">
+  <select id="selectByParam" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from el_supplier a
-    where is_deleted=0 and (a.supplier_name like #{p,jdbcType=VARCHAR} or a.contact like #{p,jdbcType=VARCHAR} or a.tel like #{p,jdbcType=VARCHAR})
+    from el_unit a
+    where is_deleted=0 and (a.unit like #{p,jdbcType=VARCHAR} or a.unit_cn like #{p,jdbcType=VARCHAR})
   </select>
-  <select id="countByByMultiCond" resultType="java.lang.Long">
+  <select id="countByParam" resultType="java.lang.Long">
     select
     count(1)
-    from el_supplier a
-    where is_deleted=0 and (a.supplier_name like #{p,jdbcType=VARCHAR} or a.contact like #{p,jdbcType=VARCHAR} or a.tel like #{p,jdbcType=VARCHAR})
+    from el_unit a
+    where is_deleted=0 and (a.unit like #{p,jdbcType=VARCHAR} or a.unit_cn like #{p,jdbcType=VARCHAR})
   </select>
 </mapper>

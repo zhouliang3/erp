@@ -1,6 +1,5 @@
 package com.elucky.erp.admin.api.controller;
 
-import com.elucky.erp.admin.api.utils.RegexUtil;
 import com.elucky.erp.admin.api.utils.ResponseUtil;
 import com.elucky.erp.admin.api.validator.Order;
 import com.elucky.erp.admin.api.validator.Sort;
@@ -25,13 +24,13 @@ public class ElMaterialTypeController {
 
 
     @GetMapping("/list")
-    public Object list(String materialTypeName,
+    public Object list(String p,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit,
                        @Sort @RequestParam(defaultValue = "create_time") String sort,
                        @Order @RequestParam(defaultValue = "desc") String order) {
-        long total = elMaterialTypeService.countSelective(materialTypeName);
-        List<ElMaterialType> materialTypes = elMaterialTypeService.querySelective(materialTypeName, page, limit, sort, order);
+        long total = elMaterialTypeService.countByTypeOrName(p);
+        List<ElMaterialType> materialTypes = elMaterialTypeService.selectByTypeOrName(p, page, limit, sort, order);
         Map<String, Object> data = new HashMap<>();
         data.put("total", total);
         data.put("items", materialTypes);

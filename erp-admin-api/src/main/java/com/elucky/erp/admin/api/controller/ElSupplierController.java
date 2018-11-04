@@ -25,13 +25,13 @@ public class ElSupplierController {
 
 
     @GetMapping("/list")
-    public Object list(String supplierName, String contact, String tel,
+    public Object list(String p,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit,
                        @Sort @RequestParam(defaultValue = "create_time") String sort,
                        @Order @RequestParam(defaultValue = "desc") String order) {
-        long total = elSupplierService.countSelective(supplierName, contact, tel);
-        List<ElSupplier> elSuppliers = elSupplierService.querySelective(supplierName, contact, tel, page, limit, sort, order);
+        long total = elSupplierService.countByMultiCond(p);
+        List<ElSupplier> elSuppliers = elSupplierService.queryByMultiCond(p, page, limit, sort, order);
         Map<String, Object> data = new HashMap<>();
         data.put("total", total);
         data.put("items", elSuppliers);
