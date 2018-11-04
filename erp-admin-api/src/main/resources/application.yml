@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: db,admin
+server:
+  port: 8081
+
+logging:
+  level:
+    root:  DEBUG
