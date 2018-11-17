@@ -6,6 +6,7 @@ import com.elucky.erp.db.domain.ElMaterialType;
 import com.elucky.erp.db.domain.ElMaterialTypeExample;
 import com.elucky.erp.db.service.ElMaterialTypeService;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +30,15 @@ public class ElMaterialTypeServiceImpl implements ElMaterialTypeService {
         return elMaterialTypeMapper.selectByTypeOrName("%" + p + "%");
     }
 
-    private ElMaterialTypeExample createMaterialTypeExample(String materialTypeName) {
+
+    @Override
+    public List<ElMaterialType> queryAll() {
         ElMaterialTypeExample example = new ElMaterialTypeExample();
         ElMaterialTypeExample.Criteria criteria = example.createCriteria();
         criteria.andIsDeletedEqualTo(false);
-        if (StringUtils.isNotBlank(materialTypeName)) {
-            criteria.andMaterialTypeNameLike("%" + materialTypeName + "%");
-        }
-        return example;
+        return elMaterialTypeMapper.selectByExample(example);
     }
+
 
     @Override
     public List<ElMaterialType> queryByMaterialTypeName(String materialTypeName) {
@@ -56,6 +57,20 @@ public class ElMaterialTypeServiceImpl implements ElMaterialTypeService {
         return elMaterialTypeMapper.selectByPrimaryKeyWithLogicalDelete(id, false);
     }
 
+    @Override
+    public ElMaterialType queryByType(String materialType) {
+        ElMaterialTypeExample example = new ElMaterialTypeExample();
+        ElMaterialTypeExample.Criteria criteria = example.createCriteria();
+        if (StringUtils.isNotBlank(materialType)) {
+            criteria.andMaterialTypeEqualTo(materialType);
+            criteria.andIsDeletedEqualTo(false);
+            List<ElMaterialType> elMaterialTypes = elMaterialTypeMapper.selectByExample(example);
+            if (CollectionUtils.isNotEmpty(elMaterialTypes)) {
+                return elMaterialTypes.get(0);
+            }
+        }
+        return null;
+    }
 
     @Override
     public long countByTypeOrName(String p) {

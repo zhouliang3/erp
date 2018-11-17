@@ -10,9 +10,13 @@ import java.util.List;
 public interface ElMaterialTypeService {
     List<ElMaterialType> selectByTypeOrName(String materialTypeName, Integer page, Integer limit, String sort, String order);
 
+    List<ElMaterialType> queryAll();
+
     List<ElMaterialType> queryByMaterialTypeName(String materialTypeName);
 
     ElMaterialType queryById(Long id);
+
+    ElMaterialType queryByType(String materialType);
 
     long countByTypeOrName(String materialTypeName);
 

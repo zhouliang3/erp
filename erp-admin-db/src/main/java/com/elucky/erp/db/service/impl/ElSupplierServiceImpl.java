@@ -1,6 +1,7 @@
 package com.elucky.erp.db.service.impl;
 
 import com.elucky.erp.db.dao.ElSupplierMapper;
+import com.elucky.erp.db.domain.ElMaterialTypeExample;
 import com.elucky.erp.db.domain.ElSupplier;
 import com.elucky.erp.db.domain.ElSupplierExample;
 import com.elucky.erp.db.service.ElSupplierService;
@@ -25,9 +26,17 @@ public class ElSupplierServiceImpl implements ElSupplierService {
             p = "";
         }
         PageHelper.startPage(page, limit);
-        return elSupplierMapper.selectByMultiCond("%" +p+ "%");
+        return elSupplierMapper.selectByMultiCond("%" + p + "%");
     }
 
+
+    @Override
+    public List<ElSupplier> queryAll() {
+        ElSupplierExample example = new ElSupplierExample();
+        ElSupplierExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeletedEqualTo(false);
+        return elSupplierMapper.selectByExample(example);
+    }
 
     @Override
     public List<ElSupplier> queryBySupplierName(String supplierName) {
@@ -51,7 +60,7 @@ public class ElSupplierServiceImpl implements ElSupplierService {
         if (StringUtils.isBlank(p)) {
             p = "";
         }
-        return elSupplierMapper.countByByMultiCond("%" +p+ "%");
+        return elSupplierMapper.countByByMultiCond("%" + p + "%");
     }
 
     @Override

@@ -42,7 +42,7 @@
         <!-- 自定义注释插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.CommentPlugin">
             <!-- 自定义模板路径 -->
-            <property name="template" value="src/main/resources/mybatis-generator-comment.ftl" />
+            <property name="template" value="src/main/resources/mybatis-generator-comment.ftl"/>
         </plugin>
         <commentGenerator>
             <property name="suppressDate" value="true"/>
@@ -89,12 +89,17 @@
             <property name="versionColumn" value="version"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        -->
 
 
         <table tableName="el_unit">
             <property name="versionColumn" value="version"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        -->
+        <table tableName="el_material">
+            <property name="versionColumn" value="version"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
     </context>
 </generatorConfiguration>

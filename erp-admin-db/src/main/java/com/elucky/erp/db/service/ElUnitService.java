@@ -10,6 +10,8 @@ import java.util.List;
 public interface ElUnitService {
     List<ElUnit> queryByParam(String p, Integer page, Integer limit);
 
+    List<ElUnit> queryAll();
+
     List<ElUnit> queryByUnit(String unit);
 
     ElUnit queryById(Long id);

@@ -38,6 +38,14 @@ public class ElSupplierController {
         return ResponseUtil.ok(data);
     }
 
+    @GetMapping("/all")
+    public Object all() {
+        List<ElSupplier> supplierList = elSupplierService.queryAll();
+        Map<String, Object> data = new HashMap<>();
+        data.put("items", supplierList);
+        return ResponseUtil.ok(data);
+    }
+
     @PostMapping("/create")
     public Object create(@RequestBody ElSupplier supplier) {
         List<ElSupplier> suppliers = elSupplierService.queryBySupplierName(supplier.getSupplierName());

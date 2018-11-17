@@ -33,6 +33,14 @@ public class ElUnitController {
         return ResponseUtil.ok(data);
     }
 
+    @GetMapping("/all")
+    public Object all() {
+        List<ElUnit> elUnits = elUnitService.queryAll();
+        Map<String, Object> data = new HashMap<>();
+        data.put("items", elUnits);
+        return ResponseUtil.ok(data);
+    }
+
     @PostMapping("/create")
     public Object create(@RequestBody ElUnit elUnit) {
         List<ElUnit> elUnits = elUnitService.queryByUnit(elUnit.getUnit());

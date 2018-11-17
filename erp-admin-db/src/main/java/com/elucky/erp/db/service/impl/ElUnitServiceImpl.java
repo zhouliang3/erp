@@ -29,6 +29,14 @@ public class ElUnitServiceImpl implements ElUnitService {
     }
 
     @Override
+    public List<ElUnit> queryAll() {
+        ElUnitExample example = new ElUnitExample();
+        ElUnitExample.Criteria criteria = example.createCriteria();
+        criteria.andIsDeletedEqualTo(false);
+        return elUnitMapper.selectByExampleSelective(example);
+    }
+
+    @Override
     public List<ElUnit> queryByUnit(String unit) {
         ElUnitExample example = new ElUnitExample();
         ElUnitExample.Criteria criteria = example.createCriteria();

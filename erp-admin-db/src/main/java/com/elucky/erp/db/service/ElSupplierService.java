@@ -11,6 +11,8 @@ public interface ElSupplierService {
 
     List<ElSupplier> queryByMultiCond(String p, Integer page, Integer limit, String sort, String order);
 
+    List<ElSupplier> queryAll();
+
     List<ElSupplier> queryBySupplierName(String supplierName);
 
     ElSupplier queryById(Long id);

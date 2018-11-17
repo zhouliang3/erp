@@ -37,6 +37,15 @@ public class ElMaterialTypeController {
         return ResponseUtil.ok(data);
     }
 
+
+    @GetMapping("/all")
+    public Object all() {
+        List<ElMaterialType> supplierList = elMaterialTypeService.queryAll();
+        Map<String, Object> data = new HashMap<>();
+        data.put("items", supplierList);
+        return ResponseUtil.ok(data);
+    }
+
     @PostMapping("/create")
     public Object create(@RequestBody ElMaterialType elMaterialType) {
         List<ElMaterialType> materialTypes = elMaterialTypeService.queryByMaterialTypeName(elMaterialType.getMaterialTypeName());
